@@ -1,24 +1,33 @@
-# README
+# Animal Lovers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+様々なユーザと動物の可愛い写真や面白い写真を共有できるサイト。
 
-Things you may want to cover:
+### サイトテーマ
+動物の写真のシェア。
 
-* Ruby version
+### テーマを選んだ理由
+動物の動画を見ると、荒んだ心も癒されますよね。
+しかし、「我が子の姿をみんなに見て欲しい！」と思ったとしても、
+動画を投稿するとなると敷居が高く感じる方は多いのではないでしょうか。
+それなら写真を共有できるような場を作れば、
+誰もが気軽に参加できるのではないかと思い、このテーマにしました。
 
-* System dependencies
+### ターゲットユーザ
+動物に心を支配されている人。
 
-* Configuration
+### 主な利用シーン
+心が疲弊したサラリーマンが癒されたい時など。
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1IPPJAd2tgm38FO4FDjFeo-zHToie66PXDAN4wi5aUAQ/edit?usp=sharing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
