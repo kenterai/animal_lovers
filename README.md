@@ -25,11 +25,11 @@
 - 心が疲弊したサラリーマンが癒されたい時など。
 
 ## 設計書
-- ER図
+- ER図  
 　https://app.diagrams.net/#G1I69EIXSADPP45ElGiWBSDDS5cNxo6xS7
-- テーブル定義書
+- テーブル定義書  
 　https://docs.google.com/spreadsheets/d/13yaaD12z9bNbRCcMI8AFaeRQL1oXMPtJJ7WONH0NeLc/edit#gid=1243549839
-- 詳細設計書
+- 詳細設計書  
 　https://docs.google.com/spreadsheets/d/1ZAd1PZWgyDp4VUXS-v_7hKy4zQn-j3Hs/edit#gid=549108681
 
 ## チャレンジ要素一覧
