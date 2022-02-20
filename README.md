@@ -26,11 +26,11 @@
 
 ## 設計書
 - ER図  
-　https://app.diagrams.net/#G1I69EIXSADPP45ElGiWBSDDS5cNxo6xS7
+https://app.diagrams.net/#G1I69EIXSADPP45ElGiWBSDDS5cNxo6xS7
 - テーブル定義書
 　https://docs.google.com/spreadsheets/d/13yaaD12z9bNbRCcMI8AFaeRQL1oXMPtJJ7WONH0NeLc/edit#gid=1243549839
 - 詳細設計書  
-　https://docs.google.com/spreadsheets/d/1ZAd1PZWgyDp4VUXS-v_7hKy4zQn-j3Hs/edit#gid=549108681
+https://docs.google.com/spreadsheets/d/1ZAd1PZWgyDp4VUXS-v_7hKy4zQn-j3Hs/edit#gid=549108681
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1IPPJAd2tgm38FO4FDjFeo-zHToie66PXDAN4wi5aUAQ/edit?usp=sharing
