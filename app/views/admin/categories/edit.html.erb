@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>カテゴリ編集</h2><br />
+
+  <%= form_with model: @category, url: admin_category_path, method: :patch, local:true do |f| %>
+    <div class="field">
+      <%= f.label :name, "カテゴリ名", class: "font-weight-bold" %><br />
+      <%= f.text_field :name, autofocus: true %>
+      <%= f.submit "変更を保存", class: "btn btn-success ml-3" %>
+    </div>
+  <% end %><br /><br />
+</div>
