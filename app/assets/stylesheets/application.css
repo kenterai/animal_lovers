@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+.top-visual{
+  height :700px;
+  background-image: url('IMG_0328.JPG');
+  background-size: cover;
+  background-position: center;
+}
+
+.about-visual{
+  height :400px;
+  background-image: url('IMG_0330.JPG');
+  background-size: cover;
+  background-position: center;
+}

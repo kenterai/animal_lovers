@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  
+
   namespace :admin do
     resources :categories, only:[:index, :create, :edit, :update]
   end
+
+  scope module: :public do
+    root to: "homes#top"
+    get 'about' => 'homes#about', as: 'about'
+  end
+
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
