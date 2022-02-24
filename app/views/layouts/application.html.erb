@@ -23,8 +23,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
+            <li class="nav-item"><%= link_to "カテゴリ一覧", admin_categories_path, class: 'nav-link text-dark' %></li>
             <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %></li>
             <% elsif user_signed_in? %>
+            <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id), class: 'nav-link text-dark' %></li>
             <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %></li>
             <% else %>
             <li class="nav-item"><%= link_to "アバウト", about_path, class: 'nav-link text-dark' %></li>
