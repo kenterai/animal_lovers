@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>会員情報編集</h2><br />
+
+  <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch, local:true do |f| %>
+    <%= render "admin/shared/error_messages", resource: @user %>
+
+    <div class="field">
+      <%= f.label :name, "名前" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", size: 40 %>
+    </div><br />
+
+    <div class="field">
+      <%= f.label :email, "メールアドレス" %><br />
+      <%= f.email_field :email, autocomplete: "email", size: 40 %>
+    </div><br />
+
+    <div class="field">
+      <%= f.label :profile, "プロフィール" %><br />
+      <%= f.text_area :profile, autocomplete: "profile", size: "40x5" %>
+    </div><br />
+
+    <div class="field">
+      <%= f.label :profile_image, "プロフィール画像" %><br />
+      <%= f.file_field :profile_image, accept: "image/*" %>
+    </div><br />
+
+    <div class="actions">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <%= link_to "退会させる", admin_user_path(@user.id), method: :delete, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？", class: "btn btn-danger ml-3" %>
+    </div>
+  <% end %>
+</div>

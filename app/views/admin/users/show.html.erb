@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>会員詳細</h2><br />
+
+　<div class="row">
+　  <div class="col-md-3">
+      <%= image_tag @user.get_profile_image(150,150), class: "rounded-circle" %><br /><br />
+
+      <h5 class="font-weight-bold"><%= @user.name %></h5>
+
+      <%= @user.profile %>
+
+      <div class="row">
+        <%= link_to edit_admin_user_path, class: "btn btn-outline-secondary btn-block" do %>
+        　<i class="fas fa-user-cog"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

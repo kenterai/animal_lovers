@@ -20,12 +20,12 @@
 
         <tbody>
           <% @categories.each do |category| %>
-          <tr>
-            <td><%= category.name %></td>
-            <td>
-              <%= link_to '編集する',edit_admin_category_path(category.id),class:"btn btn-success" %>
-            </td>
-          </tr>
+            <tr>
+              <td><%= category.name %></td>
+              <td>
+                <%= link_to '編集する',edit_admin_category_path(category.id),class:"btn btn-success" %>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>
