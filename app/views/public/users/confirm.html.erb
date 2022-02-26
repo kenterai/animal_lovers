@@ -1,1 +1,16 @@
-confirm
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 mx-auto text-center"><br />
+　    <h2 class="font-weight-bold text-danger">本当に退会しますか</h2>
+
+　    <p>退会すると全ての情報が削除され、元に戻すことはできません。<br />
+　    　 退会する場合は「退会する」をクリックしてください。
+　    </p>
+
+　    <div>
+　      <%= link_to "マイページに戻る", user_path(current_user.id), class: "btn btn-primary" %>
+　    　<%= link_to "退会する", user_path(current_user.id), method: :delete, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？", class: "btn btn-danger" %>
+　    </div>
+　  </div>
+  </div>
+</div>

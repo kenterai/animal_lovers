@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'about' => 'homes#about', as: 'about'
-    resources :users, only:[:show, :edit, :update]
+    resources :users, only:[:show, :edit, :update, :destroy]
     get 'confirm' => 'users#confirm', as: 'confirm'
   end
 
