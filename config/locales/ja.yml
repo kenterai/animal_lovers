@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 ja:
   activerecord:
+    models:
+      user: "会員"
+      category: "カテゴリ"
     attributes:
       user:
         name: "名前"
@@ -37,3 +40,8 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワード(確認用)"
         current_password: "現在のパスワード"
+      post:
+        category: "カテゴリ"
+        user:  "会員"
+        image: "画像"
+        text: "テキスト"

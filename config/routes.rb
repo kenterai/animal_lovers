@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: 'about'
     resources :users, only:[:show, :edit, :update, :destroy]
     get 'confirm' => 'users#confirm', as: 'confirm'
+    resources :posts, only:[:index, :new, :create, :show, :destroy]
+    post 'posts/confirm' => 'posts#confirm'
   end
 
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
