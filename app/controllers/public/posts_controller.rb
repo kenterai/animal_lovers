@@ -9,20 +9,23 @@ class Public::PostsController < ApplicationController
     @post = Post.new
   end
 
-  def confirm
+  def create
     @post = current_user.posts.build(post_params)
-    if @post.invalid?
-      render :new
+    if @post.save
+       redirect_to post_path(@post.id)
+    else
+       render :new
     end
   end
 
-  def create
-  end
-
   def show
+    @post = Post.find(params[:id])
   end
 
   def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to user_path(current_user.id)
   end
 
   private

@@ -3,6 +3,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.order('id DESC')
   end
 
   def edit
@@ -17,7 +18,7 @@ class Public::UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     user = current_user
     user.destroy

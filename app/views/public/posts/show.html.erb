@@ -1,2 +1,27 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+  <h2>投稿詳細</h2><br />
+
+  <div class="row">
+    <div class="card col-md-6 mx-auto pt-3 shadow-lg">
+      <%= image_tag @post.image, class:"card-img-top" %>
+
+      <div class="card-body">
+        <h2 class="font-weight-bold text-center">
+          <%= @post.text %>
+        </h2>
+
+        <%= link_to user_path(@post.user.id), class:"d-block text-right" do %>
+          <strong><span><i class="fas fa-user"></i> By <%= @post.user.name %></span></strong>
+        <% end %>
+      </div>
+    </div>
+  </div><br />
+
+  <% if @post.user == current_user %>
+    <div class="row">
+      <div class="mx-auto">
+        <%= link_to "削除する", post_path(@post.id), method: :delete, "data-confirm" => "OKを押すと削除処理がされます。本当によろしいですか？", class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>

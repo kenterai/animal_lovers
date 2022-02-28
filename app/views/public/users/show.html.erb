@@ -1,22 +1,35 @@
 <div class="container">
-  <h2>会員詳細</h2><br />
-
 　<div class="row">
 　  <div class="col-md-3">
+　    <h2>会員詳細</h2><br />
       <%= image_tag @user.get_profile_image(150,150), class: "rounded-circle" %><br /><br />
 
       <h5 class="font-weight-bold"><%= @user.name %></h5>
 
       <%= @user.profile %>
 
-      <% if @user == current_user %>
-        <div class="row">
-          <%= link_to edit_user_path, class: "btn btn-outline-secondary btn-block" do %>
-          　<i class="fas fa-user-cog"></i>
-          <% end %>
-        </div>
+      <div class="row">
+        <%= link_to edit_user_path, class: "btn btn-outline-secondary btn-block" do %>
+        　<i class="fas fa-user-cog"></i>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-8"><br />
+      <h2 class="text-center"><%= @user.name %>さんの投稿一覧</h2><br />
+    <% @posts.each do |post| %>
+    <div class="card col-md-9 mx-auto pt-3 mb-4 shadow-lg">
+      <%= link_to post_path(post.id), class:"text-dark text-decoration-none" do %>
+        <%= image_tag post.image, class:"card-img-top" %>
+
+      <div class="card-body">
+        <h2 class="font-weight-bold text-center">
+          <%= post.text %>
+        </h2>
+      </div>
       <% end %>
+    </div>
+    <% end %>
     </div>
   </div>
 </div>
-

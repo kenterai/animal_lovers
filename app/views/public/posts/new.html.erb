@@ -1,7 +1,7 @@
 <div class="container">
   <h2>投稿フォーム</h2><br />
 
-  <%= form_with model: @post, url: posts_confirm_path, method: :post, local:true do |f| %>
+  <%= form_with model: @post, url: posts_path, method: :post, local:true do |f| %>
     <%= render "public/shared/error_messages", resource: @post %>
 
     <div class="field">
@@ -20,7 +20,7 @@
     </div><br />
 
     <div class="actions">
-      <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+      <%= f.submit "投稿", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
