@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>投稿一覧</h2><br />
+
+  <% @posts.each do |post| %>
+    <div class="card col-md-6 mx-auto pt-3 mb-4 shadow-lg">
+      <%= link_to admin_post_path(post.id), class:"text-dark text-decoration-none" do %>
+
+        <%= image_tag post.image, class:"card-img-top" %>
+
+        <div class="card-body">
+          <h2 class="font-weight-bold text-center">
+            <%= post.text %>
+          </h2>
+
+          <%= link_to admin_user_path(post.user.id), class:"d-block text-right" do %>
+            <strong><span><i class="fas fa-user"></i> By <%= post.user.name %></span></strong>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

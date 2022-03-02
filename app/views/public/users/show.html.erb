@@ -1,35 +1,43 @@
 <div class="container">
-　<div class="row">
-　  <div class="col-md-3">
-　    <h2>会員詳細</h2><br />
+  <div class="row">
+    <div class="col-md-3">
+      <h2>会員詳細</h2><br />
+
       <%= image_tag @user.get_profile_image(150,150), class: "rounded-circle" %><br /><br />
 
-      <h5 class="font-weight-bold"><%= @user.name %></h5>
+      <h4 class="font-weight-bold"><%= @user.name %></h4>
 
-      <%= @user.profile %>
+      <h5><%= @user.profile %></h5>
 
-      <div class="row">
-        <%= link_to edit_user_path, class: "btn btn-outline-secondary btn-block" do %>
-        　<i class="fas fa-user-cog"></i>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="col-md-8"><br />
-      <h2 class="text-center"><%= @user.name %>さんの投稿一覧</h2><br />
-    <% @posts.each do |post| %>
-    <div class="card col-md-9 mx-auto pt-3 mb-4 shadow-lg">
-      <%= link_to post_path(post.id), class:"text-dark text-decoration-none" do %>
-        <%= image_tag post.image, class:"card-img-top" %>
-
-      <div class="card-body">
-        <h2 class="font-weight-bold text-center">
-          <%= post.text %>
-        </h2>
-      </div>
+      <% if @user == current_user %>
+        <div class="row">
+          <%= link_to edit_user_path, class: "btn btn-outline-secondary btn-block" do %>
+          　<i class="fas fa-user-cog"></i>
+          <% end %>
+        </div>
       <% end %>
     </div>
-    <% end %>
+
+    <div class="col-md-8 offset-md-1">
+      <h2 class="text-center mt-5"><span class="p-2 border border-dark"><%= @user.name %>さんの投稿一覧</span></h2><br />
+
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="card col-md-9 mx-auto pt-3 mb-4 shadow-lg">
+            <%= link_to post_path(post.id), class:"text-dark text-decoration-none" do %>
+              <%= image_tag post.image, class:"card-img-top" %>
+
+              <div class="card-body">
+                <h2 class="font-weight-bold text-center">
+                  <%= post.text %>
+                </h2>
+
+                <%= link_to "#{post.post_comments.count} コメント", post_path(post.id), class:"d-block text-right" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

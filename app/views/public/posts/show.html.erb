@@ -3,6 +3,7 @@
 
   <div class="row">
     <div class="card col-md-6 mx-auto pt-3 shadow-lg">
+
       <%= image_tag @post.image, class:"card-img-top" %>
 
       <div class="card-body">
@@ -22,6 +23,43 @@
       <div class="mx-auto">
         <%= link_to "削除する", post_path(@post.id), method: :delete, "data-confirm" => "OKを押すと削除処理がされます。本当によろしいですか？", class: "btn btn-danger" %>
       </div>
-    </div>
+    </div><br />
   <% end %>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <%= form_with model: [@post, @post_comment], method: :post, local:true do |f| %>
+        <%= render "public/shared/error_messages", resource: @post_comment %>
+
+        <div class="field">
+          <%= f.text_field :comment, placeholder: "コメントを入力", size: "40" %>
+          <%= f.submit "送信する", class: "ml-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+　    <table class="table table-hover">
+	    　<tbody>
+	    　  <% @post.post_comments.order('id DESC').each do |post_comment| %>
+	    　		<tr>
+	    　		  <td>
+	    　		    <%= link_to user_path(post_comment.user.id), class:"text-decoration-none" do %>
+	    　		      <%= image_tag post_comment.user.get_profile_image(38,38), class: "rounded-circle" %>
+	    　			  <% end %>
+	    　			</td>
+	    　			<td><%= post_comment.comment %></td>
+	    　			<td>
+	    　			  <% if post_comment.user == current_user %>
+	      　			  <%= link_to "削除", post_post_comment_path(post_comment.post.id,post_comment.id), method: :delete, "data-confirm" => "OKを押すと削除処理がされます。本当によろしいですか？", class: "btn btn-danger" %>
+	      　		  <% end %>
+	      　	  </td>
+	    　		</tr>
+	    　	<% end %>
+	    　</tbody>
+　    </table>
+　  </div>
+　</div>
 </div>

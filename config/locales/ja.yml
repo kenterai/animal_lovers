@@ -45,3 +45,5 @@ ja:
         user:  "会員"
         image: "画像"
         text: "テキスト"
+      post_comment:
+        comment: "コメント"

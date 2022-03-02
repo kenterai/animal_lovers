@@ -1,2 +1,28 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<div class="container">
+  <h2>投稿一覧</h2><br />
+
+  <% @posts.each do |post| %>
+    <div class="card col-md-6 mx-auto pt-3 mb-4 shadow-lg">
+      <%= link_to post_path(post.id), class:"text-dark text-decoration-none" do %>
+
+        <%= image_tag post.image, class:"card-img-top" %>
+
+        <div class="card-body">
+          <h2 class="font-weight-bold text-center">
+            <%= post.text %>
+          </h2>
+
+          <div class="text-right">
+            <%= link_to user_path(post.user.id) do %>
+              <strong><span><i class="fas fa-user"></i> By <%= post.user.name %></span></strong>
+            <% end %>
+            |
+            <%= link_to post_path(post.id) do %>
+              <span><%= "#{post.post_comments.count} コメント" %></span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
