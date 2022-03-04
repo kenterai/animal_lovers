@@ -11,9 +11,27 @@
           <%= @post.text %>
         </h2>
 
-        <%= link_to user_path(@post.user.id), class:"d-block text-right" do %>
-          <strong><span><i class="fas fa-user"></i> By <%= @post.user.name %></span></strong>
-        <% end %>
+        <div class="text-right">
+          <%= link_to user_path(@post.user.id) do %>
+            <strong><span><i class="fas fa-user"></i> By <%= @post.user.name %></span></strong>
+          <% end %><br />
+
+          <% if user_signed_in? %>
+            <% if @post.favorited_by?(current_user) %>
+              <%= link_to post_favorites_path(@post), method: :delete do %>
+                ♥<%= @post.favorites.count %> <strong>いいね</strong>
+              <% end %>
+            <% else %>
+              <%= link_to post_favorites_path(@post), method: :post do %>
+                ♡<%= @post.favorites.count %> <strong>いいね</strong>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to post_favorites_path(@post), method: :post do %>
+              ♡<%= @post.favorites.count %> <strong>いいね</strong>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div><br />

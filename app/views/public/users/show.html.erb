@@ -32,7 +32,9 @@
                   <%= post.text %>
                 </h2>
 
-                <%= link_to "#{post.post_comments.count} コメント", post_path(post.id), class:"d-block text-right" %>
+                <%= link_to post_path(post.id), class:"d-block text-right" do %>
+                  <span><%= post.favorites.count %> <strong>いいね</strong> <%= post.post_comments.count %> コメント</span>
+                <% end %>
               </div>
             <% end %>
           </div>

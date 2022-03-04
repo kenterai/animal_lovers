@@ -11,9 +11,13 @@
           <%= @post.text %>
         </h2>
 
-        <%= link_to admin_user_path(@post.user.id), class:"d-block text-right" do %>
-          <strong><span><i class="fas fa-user"></i> By <%= @post.user.name %></span></strong>
-        <% end %>
+        <div class="text-right">
+          <%= link_to admin_user_path(@post.user.id) do %>
+            <strong><span><i class="fas fa-user"></i> By <%= @post.user.name %></span></strong>
+          <% end %><br />
+
+          <span>♡<%= @post.favorites.count %> <strong>いいね</strong></span>
+        </div>
       </div>
     </div>
   </div><br />
@@ -24,4 +28,25 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+　    <table class="table table-hover">
+	    　<tbody>
+	    　  <% @post.post_comments.order('id DESC').each do |post_comment| %>
+	    　		<tr>
+	    　		  <td>
+	    　		    <%= link_to admin_user_path(post_comment.user.id), class:"text-decoration-none" do %>
+	    　		      <%= image_tag post_comment.user.get_profile_image(38,38), class: "rounded-circle" %>
+	    　			  <% end %>
+	    　			</td>
+	    　			<td><%= post_comment.comment %></td>
+	    　			<td>
+	      　		  <%= link_to "削除", admin_post_post_comment_path(post_comment.post.id,post_comment.id), method: :delete, "data-confirm" => "OKを押すと削除処理がされます。本当によろしいですか？", class: "btn btn-danger" %>
+	      　	  </td>
+	    　		</tr>
+	    　	<% end %>
+	    　</tbody>
+　    </table>
+　  </div>
+　</div>
 </div>

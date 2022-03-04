@@ -12,9 +12,15 @@
             <%= post.text %>
           </h2>
 
-          <%= link_to admin_user_path(post.user.id), class:"d-block text-right" do %>
-            <strong><span><i class="fas fa-user"></i> By <%= post.user.name %></span></strong>
-          <% end %>
+          <div class="text-right">
+            <%= link_to admin_user_path(post.user.id) do %>
+              <strong><span><i class="fas fa-user"></i> By <%= post.user.name %></span></strong>
+            <% end %><br />
+
+            <%= link_to admin_post_path(post.id) do %>
+              <span><%= post.favorites.count %> <strong>いいね</strong> <%= post.post_comments.count %> コメント</span>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

@@ -29,6 +29,10 @@
                 <h2 class="font-weight-bold text-center">
                   <%= post.text %>
                 </h2>
+
+                <%= link_to admin_post_path(post.id), class:"d-block text-right" do %>
+                  <span><%= post.favorites.count %> <strong>いいね</strong> <%= post.post_comments.count %> コメント</span>
+                <% end %>
               </div>
             <% end %>
           </div>

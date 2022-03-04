@@ -15,10 +15,10 @@
           <div class="text-right">
             <%= link_to user_path(post.user.id) do %>
               <strong><span><i class="fas fa-user"></i> By <%= post.user.name %></span></strong>
-            <% end %>
-            |
+            <% end %><br />
+
             <%= link_to post_path(post.id) do %>
-              <span><%= "#{post.post_comments.count} コメント" %></span>
+              <span><%= post.favorites.count %> <strong>いいね</strong> <%= post.post_comments.count %> コメント</span>
             <% end %>
           </div>
         </div>
