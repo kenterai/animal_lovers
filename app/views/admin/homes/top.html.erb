@@ -18,7 +18,7 @@
             <% end %><br />
 
             <%= link_to admin_post_path(post.id) do %>
-              <span><%= post.favorites.count %> <strong>いいね</strong> <%= post.post_comments.count %> コメント</span>
+              <strong><span><%= post.favorites.count %> いいね <%= post.post_comments.count %> コメント</span></strong>
             <% end %>
           </div>
         </div>

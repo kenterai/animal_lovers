@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :follows, :followers]
 
   def show
     @user = User.find(params[:id])
@@ -23,6 +23,16 @@ class Public::UsersController < ApplicationController
     user = current_user
     user.destroy
     redirect_to root_path
+  end
+
+  def follows
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
   end
 
   private
