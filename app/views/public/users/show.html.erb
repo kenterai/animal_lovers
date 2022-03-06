@@ -43,6 +43,7 @@
         <% @posts.each do |post| %>
           <div class="card col-md-9 mx-auto pt-3 mb-4 shadow-lg">
             <%= link_to post_path(post.id), class:"text-dark text-decoration-none" do %>
+
               <%= image_tag post.image, class:"card-img-top" %>
 
               <div class="card-body">

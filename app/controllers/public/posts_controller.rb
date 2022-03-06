@@ -1,8 +1,24 @@
 class Public::PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :rank]
 
   def index
+    @categories =Category.all
     @posts = Post.all.order('id DESC')
+    if params[:category_id]
+      @category = @categories.find(params[:category_id])
+      @posts = @posts.where(category: @category)
+    end
+  end
+
+  def rank
+    @categories =Category.all
+    @posts = Post.all
+    if params[:category_id]
+      @category = @categories.find(params[:category_id])
+      @posts = @posts.where(category: @category)
+    end
+    ids = Favorite.group(:post_id).order('count(post_id) desc').pluck(:post_id)
+    @posts = @posts.where(id: ids).sort_by { |o| ids.index(o.id) }
   end
 
   def new
