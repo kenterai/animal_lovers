@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>フォロー投稿一覧</h2><br />
+
+  <div class="row">
+    <div class="col-md-3">
+	  	<table class="table table-hover">
+	  	  <thead class="bg-light">
+	  	    <tr>
+	  	      <th>カテゴリ検索</th>
+	  	    </tr>
+	  	  </thead>
+
+	  	  <tbody>
+	  	    <% @categories.each do |category| %>
+	  	      <tr>
+	  	        <td><%= link_to category.name, follows_path(category_id: category.id) %></td>
+	  	      </tr>
+	  	    <% end %>
+	  	  </tbody>
+	  	</table><br />
+	  </div>
+
+    <div class="col-md-8 offset-md-1">
+      <div class="text-center">
+        <%= link_to "　新着　", posts_path, class: "btn btn-primary" %>
+        <%= link_to "　ランキング　", rank_path, class: "btn btn-primary" %>
+	  	  <%= link_to "　フォロー　", follows_path, class: "btn btn-success" %>
+	  	</div><br />
+
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="card col-md-9 mx-auto pt-3 mb-4 shadow-lg">
+            <%= link_to post_path(post.id), class:"text-dark text-decoration-none" do %>
+              <%= image_tag post.image, class:"card-img-top" %>
+
+              <div class="card-body">
+                <h2 class="font-weight-bold text-center">
+                  <%= post.text %>
+                </h2>
+
+                <div class="text-right">
+                  <%= link_to user_path(post.user.id) do %>
+                    <strong><span><i class="fas fa-user"></i> By <%= post.user.name %></span></strong>
+                  <% end %><br />
+
+                  <%= link_to post_path(post.id) do %>
+                    <strong><span><%= post.favorites.count %> いいね <%= post.post_comments.count %> コメント</span></strong>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

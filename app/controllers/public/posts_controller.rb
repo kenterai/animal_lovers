@@ -21,6 +21,15 @@ class Public::PostsController < ApplicationController
     @posts = @posts.where(id: ids).sort_by { |o| ids.index(o.id) }
   end
 
+  def follows
+    @categories =Category.all
+    @posts = Post.where(user_id: [*current_user.following_ids]).order('id DESC')
+    if params[:category_id]
+      @category = @categories.find(params[:category_id])
+      @posts = @posts.where(category: @category)
+    end
+  end
+
   def new
     @post = Post.new
   end

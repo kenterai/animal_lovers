@@ -6,7 +6,7 @@
 	  	<table class="table table-hover">
 	  	  <thead class="bg-light">
 	  	    <tr>
-	  	      <td>カテゴリ検索</td>
+	  	      <th>カテゴリ検索</th>
 	  	    </tr>
 	  	  </thead>
 
@@ -17,29 +17,20 @@
 	  	      </tr>
 	  	    <% end %>
 	  	  </tbody>
-	  	</table>
+	  	</table><br />
 	  </div>
 
     <div class="col-md-8 offset-md-1">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-	  	    <table class="table">
-	  	      <tbody class="bg-light">
-	  	        <tr>
-	  	          <td><%= link_to "新着", posts_path %></td>
-	  	          <td><%= link_to "ランキング", rank_path %></td>
-	  	          <td><%= link_to "フォロー", follows_path %></td>
-	  	        </tr>
-	  	      </body>
-	  	    </table>
-	  	  </div>
-	    </div>
+      <div class="text-center">
+        <%= link_to "　新着　", posts_path, class: "btn btn-success" %>
+        <%= link_to "　ランキング　", rank_path, class: "btn btn-primary" %>
+	  	  <%= link_to "　フォロー　", follows_path, class: "btn btn-primary" %>
+	  	</div><br />
 
       <div class="row">
         <% @posts.each do |post| %>
           <div class="card col-md-9 mx-auto pt-3 mb-4 shadow-lg">
             <%= link_to post_path(post.id), class:"text-dark text-decoration-none" do %>
-
               <%= image_tag post.image, class:"card-img-top" %>
 
               <div class="card-body">

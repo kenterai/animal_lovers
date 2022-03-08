@@ -1,8 +1,8 @@
 <div class="container">
+  <h2>会員詳細</h2><br />
+
   <div class="row">
     <div class="col-md-3">
-      <h2>会員詳細</h2><br />
-
       <%= image_tag @user.get_profile_image(150,150), class: "rounded-circle" %><br /><br />
 
       <h4 class="font-weight-bold"><%= @user.name %></h4>
@@ -33,11 +33,11 @@
             <% end %>
           <% end %>
         <% end %>
-      </div>
+      </div><br />
     </div>
 
     <div class="col-md-8 offset-md-1">
-      <h2 class="text-center mt-5"><span class="p-2 border border-dark"><%= @user.name %>さんの投稿一覧</span></h2><br />
+      <h2 class="text-center"><span class="p-2 border border-dark"><%= @user.name %>さんの投稿一覧</span></h2><br />
 
       <div class="row">
         <% @posts.each do |post| %>
