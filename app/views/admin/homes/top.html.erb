@@ -1,28 +1,51 @@
 <div class="container">
   <h2>投稿一覧</h2><br />
 
-  <% @posts.each do |post| %>
-    <div class="card col-md-6 mx-auto pt-3 mb-4 shadow-lg">
-      <%= link_to admin_post_path(post.id), class:"text-dark text-decoration-none" do %>
+  <div class="row">
+    <div class="col-md-3">
+	  	<table class="table table-hover">
+	  	  <thead class="bg-light">
+	  	    <tr>
+	  	      <th>カテゴリ検索</th>
+	  	    </tr>
+	  	  </thead>
 
-        <%= image_tag post.image, class:"card-img-top" %>
+	  	  <tbody>
+	  	    <% @categories.each do |category| %>
+	  	      <tr>
+	  	        <td><%= link_to category.name, admin_root_path(category_id: category.id) %></td>
+	  	      </tr>
+	  	    <% end %>
+	  	  </tbody>
+	  	</table><br />
+	  </div>
 
-        <div class="card-body">
-          <h2 class="font-weight-bold text-center">
-            <%= post.text %>
-          </h2>
+	  <div class="col-md-8 offset-md-1">
+	    <div class="row">
+        <% @posts.each do |post| %>
+          <div class="card col-md-9 mx-auto pt-3 mb-4 shadow-lg">
+            <%= link_to admin_post_path(post.id), class:"text-dark text-decoration-none" do %>
+              <%= image_tag post.image, class:"card-img-top" %>
 
-          <div class="text-right">
-            <%= link_to admin_user_path(post.user.id) do %>
-              <strong><span><i class="fas fa-user"></i> By <%= post.user.name %></span></strong>
-            <% end %><br />
+              <div class="card-body">
+                <h2 class="font-weight-bold text-center">
+                  <%= post.text %>
+                </h2>
 
-            <%= link_to admin_post_path(post.id) do %>
-              <strong><span><%= post.favorites.count %> いいね <%= post.post_comments.count %> コメント</span></strong>
+                <div class="text-right">
+                  <%= link_to admin_user_path(post.user.id) do %>
+                    <strong><span><i class="fas fa-user"></i> By <%= post.user.name %></span></strong>
+                  <% end %><br />
+
+                  <%= link_to admin_post_path(post.id) do %>
+                    <strong><span><%= post.favorites.count %> いいね <%= post.post_comments.count %> コメント</span></strong>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
 </div>
