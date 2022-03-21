@@ -8,11 +8,10 @@
 	    　  <% @users.each do |user| %>
 	    　		<tr>
 	    　			<td><%= image_tag user.get_profile_image(38,38), class: "rounded-circle" %></td>
-	    　			<td><%= user.name %></td>
-	    　			<td><%= user.email %></td>
 	    　			<td>
-	    　			  <%= link_to "詳細", admin_user_path(user.id), class: "btn btn-primary" %>
+	    　				<%= link_to user.name, admin_user_path(user.id) %>
 	    　			</td>
+	    　			<td><%= user.email %></td>
 	    　		</tr>
 	    　	<% end %>
 	    　</tbody>

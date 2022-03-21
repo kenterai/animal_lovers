@@ -16,7 +16,7 @@
 
     <div class="field">
     	<%= f.label :category_id, "カテゴリ" %><br />
-			<%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "--選択して下さい--　　　　　　　　　　　　" %>
+			<%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "--選択して下さい--　　　　　　　　" %>
     </div><br />
 
     <div class="actions">
