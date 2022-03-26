@@ -13,7 +13,7 @@
 	  	  <tbody>
 	  	    <% @categories.each do |category| %>
 	  	      <tr>
-	  	        <td><%= link_to category.name, rank_path(category_id: category.id) %></td>
+	  	        <td><%= link_to category.name, rank_posts_path(category_id: category.id) %></td>
 	  	      </tr>
 	  	    <% end %>
 	  	  </tbody>
@@ -23,8 +23,8 @@
     <div class="col-md-8 offset-md-1">
       <div class="text-center">
         <%= link_to "　新着　", posts_path, class: "btn btn-primary" %>
-        <%= link_to "　ランキング　", rank_path, class: "btn btn-success" %>
-	  	  <%= link_to "　フォロー　", follows_path, class: "btn btn-primary" %>
+        <%= link_to "　ランキング　", rank_posts_path, class: "btn btn-success" %>
+	  	  <%= link_to "　フォロー　", follows_posts_path, class: "btn btn-primary" %>
 	  	</div><br />
 
       <%= render 'list', posts: @posts %>

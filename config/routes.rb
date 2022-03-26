@@ -14,9 +14,11 @@ Rails.application.routes.draw do
       get :follows, on: :member
       get :followers, on: :member
     end
-    get 'posts/rank' => 'posts#rank', as: 'rank'
-    get 'posts/follows' => 'posts#follows', as: 'follows'
     resources :posts, only:[:index, :new, :create, :show, :destroy] do
+      collection do
+        get 'rank'
+        get 'follows'
+      end
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only:[:create, :destroy]
     end
