@@ -27,5 +27,4 @@ class User < ApplicationRecord
   def followed_by?(user)
     passive_relationships.exists?(following_id: user.id)
   end
-
 end

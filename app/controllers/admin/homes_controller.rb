@@ -2,7 +2,7 @@ class Admin::HomesController < ApplicationController
   before_action :authenticate_admin!
 
   def top
-    @categories =Category.all
+    @categories = Category.all
     @posts = Post.all.order('id DESC')
     if params[:category_id]
       @category = @categories.find(params[:category_id])

@@ -2,7 +2,7 @@ class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :rank]
 
   def index
-    @categories =Category.all
+    @categories = Category.all
     @posts = Post.all.order('id DESC')
     if params[:category_id]
       @category = @categories.find(params[:category_id])
@@ -11,7 +11,7 @@ class Public::PostsController < ApplicationController
   end
 
   def rank
-    @categories =Category.all
+    @categories = Category.all
     @posts = Post.all
     if params[:category_id]
       @category = @categories.find(params[:category_id])
@@ -22,7 +22,7 @@ class Public::PostsController < ApplicationController
   end
 
   def follows
-    @categories =Category.all
+    @categories = Category.all
     @posts = Post.where(user_id: [*current_user.following_ids]).order('id DESC')
     if params[:category_id]
       @category = @categories.find(params[:category_id])
@@ -37,9 +37,9 @@ class Public::PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-       redirect_to post_path(@post.id)
+      redirect_to post_path(@post.id)
     else
-       render :new
+      render :new
     end
   end
 
@@ -59,5 +59,4 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:image, :text, :category_id)
   end
-
 end

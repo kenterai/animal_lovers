@@ -6,9 +6,9 @@ class Public::PostCommentsController < ApplicationController
     @post_comment = current_user.post_comments.build(post_comment_params)
     @post_comment.post_id = @post.id
     if @post_comment.save
-       redirect_to post_path(@post.id)
+      redirect_to post_path(@post.id)
     else
-       render "public/posts/show"
+      render "public/posts/show"
     end
   end
 
@@ -22,5 +22,4 @@ class Public::PostCommentsController < ApplicationController
   def post_comment_params
     params.require(:post_comment).permit(:comment)
   end
-
 end

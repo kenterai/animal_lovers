@@ -10,5 +10,4 @@ class Admin::PostsController < ApplicationController
     post.destroy
     redirect_to admin_root_path
   end
-
 end
