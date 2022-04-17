@@ -3,7 +3,7 @@ class Admin::HomesController < ApplicationController
 
   def top
     @categories = Category.all
-    @posts = Post.all.order('id DESC')
+    @posts = Post.page(params[:page]).order('id DESC')
     if params[:category_id]
       @category = @categories.find(params[:category_id])
       @posts = @posts.where(category: @category)

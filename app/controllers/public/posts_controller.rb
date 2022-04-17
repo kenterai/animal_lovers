@@ -3,7 +3,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @categories = Category.all
-    @posts = Post.all.order('id DESC')
+    @posts = Post.page(params[:page]).order('id DESC')
     if params[:category_id]
       @category = @categories.find(params[:category_id])
       @posts = @posts.where(category: @category)
@@ -12,18 +12,16 @@ class Public::PostsController < ApplicationController
 
   def rank
     @categories = Category.all
-    @posts = Post.all
+    @posts = Post.page(params[:page]).joins(:favorites).group(:post_id).order("count(post_id) desc")
     if params[:category_id]
       @category = @categories.find(params[:category_id])
       @posts = @posts.where(category: @category)
     end
-    ids = Favorite.group(:post_id).order('count(post_id) desc').pluck(:post_id)
-    @posts = @posts.where(id: ids).sort_by { |o| ids.index(o.id) }
   end
 
   def follows
     @categories = Category.all
-    @posts = Post.where(user_id: [*current_user.following_ids]).order('id DESC')
+    @posts = Post.page(params[:page]).where(user_id: [*current_user.following_ids]).order('id DESC')
     if params[:category_id]
       @category = @categories.find(params[:category_id])
       @posts = @posts.where(category: @category)
