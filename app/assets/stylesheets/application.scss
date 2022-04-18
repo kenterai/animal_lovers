@@ -58,3 +58,27 @@
 .pagination {
   justify-content: center;
 }
+
+.wrap {
+  width: 75%;
+  margin: 0 auto;
+}
+
+#tab-menu {
+  display: flex;
+  padding-left: 0;
+}
+
+#tab-menu li {
+  list-style-type: none;
+  width: 33%;
+}
+
+#tab-menu li a {
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #000;
+  border-bottom: none;
+}
