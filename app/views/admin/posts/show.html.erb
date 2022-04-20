@@ -45,7 +45,7 @@
                   <%= post_comment.user.name %>
                 <% end %>
               　<%= post_comment.created_at.strftime('%Y/%m/%d') %>
-                <%= link_to "削除", admin_post_post_comment_path(post_comment.post.id,post_comment.id), method: :delete, "data-confirm" => "OKを押すと削除処理がされます。本当によろしいですか？", class: "btn btn-danger" %><br />
+              　<%= link_to "削除", admin_post_post_comment_path(post_comment.post.id,post_comment.id), method: :delete, "data-confirm" => "OKを押すと削除処理がされます。本当によろしいですか？", class: "btn btn-danger" %><br />
                 <%= post_comment.comment %>
 	            </div>
 	          </div>
